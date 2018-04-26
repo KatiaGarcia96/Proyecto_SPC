@@ -1,5 +1,9 @@
-        const string connectionString = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=spcproject.cxmd6kjxslqw.us-west-1.rds.amazonaws.com)(PORT=1521)) (CONNECT_DATA=(SERVICE_NAME=ORCL))); User Id=kyann;Password=Gakd0132;";
+       --Conexion entre c# y AWS
+       const string connectionString = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=spcproject.cxmd6kjxslqw.us-west-1.rds.amazonaws.com)(PORT=1521)) (CONNECT_DATA=(SERVICE_NAME=ORCL))); User Id=kyann;Password=Gakd0132;";
         var connection = new OracleConnection(connectionString);
         connection.Open();
         Console.Write("Abierto");
         connection.Close();
+        --Codigo para insertar datos en SQL
+        INSERT INTO KYANN.USUARIO (USUARIO_ID, PUESTO, NOMBRE, APELLIDO, TURNO, PASSWORD)
+        VALUES('331383', 'Administrador', 'Katia', 'Garcia', 'Ambos', 'GAKD0132');
