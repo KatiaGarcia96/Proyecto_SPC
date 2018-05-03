@@ -1,0 +1,27 @@
+        //Abrir coneccion
+        connection.Open();
+        //Asignar a una variable que sea un commando
+        OracleCommand user = new OracleCommand("INGRESAR_USUARIO");
+        //Al comando agregarle la conexion con la base de datos
+        user.Connection = connection;
+        //Declarar que es un Procedure guardado
+        user.CommandType = System.Data.CommandType.StoredProcedure;
+
+        //Declarar cuales son los parametros y si son entradas o salidas
+        user.Parameters.Add("ID_U", OracleDbType.Int64).Direction = System.Data.ParameterDirection.Input;
+        user.Parameters.Add("NOMBRE_U", OracleDbType.Varchar2).Direction = System.Data.ParameterDirection.Input;
+        user.Parameters.Add("APELLIDO_U", OracleDbType.Varchar2).Direction = System.Data.ParameterDirection.Input;
+        user.Parameters.Add("PUESTO_U", OracleDbType.Varchar2).Direction = System.Data.ParameterDirection.Input;
+        user.Parameters.Add("TURNO_U", OracleDbType.Varchar2).Direction = System.Data.ParameterDirection.Input;
+        user.Parameters.Add("PASSWORD_U", OracleDbType.Varchar2).Direction = System.Data.ParameterDirection.Input;
+        
+        //Declarar los valores
+        user.Parameters["ID_U"].Value = "331383";
+        user.Parameters["NOMBRE_U"].Value = "Admin";
+        user.Parameters["APELLIDO_U"].Value = "Admin";
+        user.Parameters["PUESTO_U"].Value = "Admin";
+        user.Parameters["TURNO_U"].Value = "Admin";
+        user.Parameters["PASSWORD_U"].Value = "Admin";
+
+        //Ejecutar
+        user.ExecuteScalar();
